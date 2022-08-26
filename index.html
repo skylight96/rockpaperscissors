@@ -17,14 +17,13 @@
         
         let playerScore = 0;
         let computerScore = 0; 
-            
+
         for (let round = 0; round < 5; round++) {
             let computerSelection = getComputerChoice();
             let playerSelection = window.prompt("ROCK PAPER SCISSORS GO!", "CHOOSE");
             playRound(playerSelection, computerSelection);
             if (!playerScore && !computerScore) {
-            round--;
-        }
+            round--; }
             console.log(playerScore, computerScore)
         }
 
