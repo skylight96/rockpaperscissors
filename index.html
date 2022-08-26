@@ -1,24 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         const choices = ["rock", "paper", "scissors"];
         function getComputerChoice() {
-            return choices[Math.floor(Math.random()*choices.length)];
+            return choices[Math.floor(Math.random() * choices.length)].toLowerCase();
         }
-        let computerSelection = getComputerChoice
-        let playerSelection = window.prompt("ROCK PAPER SCISSORS GO!", "CHOOSE").toLowerCase();
+        let computerSelection = getComputerChoice();
+        let playerSelection = window.prompt("ROCK PAPER SCISSORS GO!", "CHOOSE");
 
-        function playRound (playerSelection, computerSelection) {
-            
+        playRound(playerSelection, computerSelection);
+
+    // use \n to put alert on new line || /*"like this"*/
+        function playRound(playerSelection, computerSelection) {
+            if (playerSelection == "rock" && computerSelection == "paper") {
+                alert("YOU LOST TO A ROBOT " + playerSelection + " : " + computerSelection);
+            }
+            else if (playerSelection == "rock" && computerSelection == "scissors") {
+                alert("YOU BEAT THE ROBOT " + playerSelection  + " : " + computerSelection);
+            }
+            else if (playerSelection == "scissors" && computerSelection == "paper") {
+                alert("YOU BEAT THE THE ROBOT " + playerSelection + " : " + computerSelection);
+            }
+            else if (playerSelection == "scissors" && computerSelection == "rock") {
+                alert("YOU LOST TO THE ROBOT " + playerSelection + " : " + computerSelection);
+            }
+            else if (playerSelection == "paper" && computerSelection == "rock") {
+                alert("YOU BEAT THE ROBOT " + playerSelection + " : " + computerSelection);
+
+            }
+            else if (playerSelection == "paper" && computerSelection == "scissors") {
+                alert("YOU LOST TO THE ROBOT " + playerSelection+ " : " + computerSelection);
+            }
+            else if (playerSelection == computerSelection) {
+                alert("YOU ARE ROBOT: TRY AGAIN")
+            }
+            else if (!playerSelection)  {
+                    alert("INVALID ENTRY");
+            }
+            else
+                    alert("TRY AGAIN");
         }
+
 
     </script>
 </body>
+
 </html>
