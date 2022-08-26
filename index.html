@@ -9,8 +9,16 @@
 <body>
     <script>
         const choices = ["rock", "paper", "scissors"];
-        let choice = choices[Math.floor(Math.random()*choices.length)];
-    
+        function getComputerChoice() {
+            return choices[Math.floor(Math.random()*choices.length)];
+        }
+        let computerSelection = getComputerChoice
+        let playerSelection = window.prompt("ROCK PAPER SCISSORS GO!", "CHOOSE").toLowerCase();
+
+        function playRound (playerSelection, computerSelection) {
+            
+        }
+
     </script>
 </body>
 </html>
