@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.userSelections .rock:hover, 
+.userSelections .paper:hover,
+.userSelections .scissors:hover{
+    transform: scale(1.5);
+}
+
+.userSelections, .cpuSelections {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1, h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.playAgain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}

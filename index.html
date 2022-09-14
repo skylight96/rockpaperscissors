@@ -6,89 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
 
 <body>
-    <script>
-        const choices = ["rock", "paper", "scissors"];
-        function getComputerChoice() {
-            return choices[Math.floor(Math.random() * choices.length)].toLowerCase();
-        }
+    <div class="ui">
+        <div class='userSelections'>
 
-        let playerScore = 0;
-        let computerScore = 0;
+            <img class='rock'
+                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/rock_1faa8.png">
+            <img class='paper'
+                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/scroll_1f4dc.png">
+            <img class='scissors'
+                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/scissors_2702-fe0f.png">
+        </div>
 
-        game()
+        <div class="scores">
+            <h2 class="playerScore">Player Score: 0</h2>
+            <div class="winner">
+                <h2 class="announcement">winner won this round! </h2>
+            </div>
+            <h2 class="cpuScore">CPU Score: 0</h2>
+        </div>
 
-        function game() {
-            for (let round = 0; round < 5; round++) {
-                let computerSelection = getComputerChoice();
-                let playerSelection = window.prompt("ROCK PAPER SCISSORS GO!", "CHOOSE");
-                let result = playRound(playerSelection, computerSelection);
-                console.log(playerScore, computerScore)
-                console.log("The winner is", result)
-                if (playerScore == 3) {
-                    console.log("YOU BEAT A ROBOT; HERE'S A COOKIE");
-                    break
-                }
-                if (computerScore == 3) {
-                    console.log("YOU LOST TO A ROBOT; GET A REAL JOB");
-                    break
-                }
-                if (result == "draw") {
-                    round--;
-                }
-                if (result == "error") {
-                    break
-                }
-            }
-        }
+        <div class='cpuSelections'>
+            <img class='scissors'
+                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/scissors_2702-fe0f.png">
+            <img class='paper'
+                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/scroll_1f4dc.png">
+            <img class='rock'
+                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/rock_1faa8.png">
+        </div>
 
-
-        // use \n to put alert on new line || /*"like this"*/
-        function playRound(playerSelection, computerSelection) {
-            if (playerSelection == "rock" && computerSelection == "paper") {
-                computerScore += 1;
-                alert("YOU LOST TO A ROBOT " + playerSelection + " : " + computerSelection);
-                return "robot";
-            }
-            else if (playerSelection == "rock" && computerSelection == "scissors") {
-                playerScore += 1;
-                alert("YOU BEAT THE ROBOT " + playerSelection + " : " + computerSelection);
-                return "player";
-            }
-            else if (playerSelection == "scissors" && computerSelection == "paper") {
-                playerScore += 1;
-                alert("YOU BEAT THE THE ROBOT " + playerSelection + " : " + computerSelection);
-                return "player";
-            }
-            else if (playerSelection == "scissors" && computerSelection == "rock") {
-                computerScore += 1;
-                alert("YOU LOST TO THE ROBOT " + playerSelection + " : " + computerSelection);
-                return "robot"
-            }
-            else if (playerSelection == "paper" && computerSelection == "rock") {
-                playerScore += 1;
-                alert("YOU BEAT THE ROBOT " + playerSelection + " : " + computerSelection);
-                return "player";
-
-            }
-            else if (playerSelection == "paper" && computerSelection == "scissors") {
-                computerScore += 1;
-                alert("YOU LOST TO THE ROBOT " + playerSelection + " : " + computerSelection);
-                return "robot";
-            }
-            else if (playerSelection == computerSelection) {
-                alert("YOU ARE ROBOT: TRY AGAIN")
-                return "draw";
-            }
-            else {
-                alert("INVALID ENTRY");
-                return "error";
-            }
-        }
-
-    </script>
+        <button class="playAgain">Play Again</button>
+    </div>
 </body>
 
 </html>
