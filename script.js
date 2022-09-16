@@ -8,9 +8,11 @@ const playerSelection = document.querySelector('.playerSelection')
 const cpuSelection = document.querySelector('.cpuSelection')
 const winAnnouncement = document.querySelector('.announcement')
 
+const record = document.querySelector('.record')
+
 let playerScore = 0;
 let computerScore = 0;
-    
+
 let playerChoice = null //get back to playerChoice being null
 let selectedPlayerImage;
 let selectedCPUImage;
@@ -26,9 +28,9 @@ userSelections.addEventListener('click', (e) => {
         //display user choice(text)
         // const playerSelection = document.querySelector('.playerSelection')
         playerSelection.classList.add('selected')
-        playerSelection.textContent = "You selected" + " " + playerChoice;          
+        playerSelection.textContent = "You selected" + " " + playerChoice;
         console.log(playerChoice)
-        
+
         //generate CPU selection
         const cpuChoice = getComputerChoice()
         console.log(cpuChoice)
@@ -37,7 +39,7 @@ userSelections.addEventListener('click', (e) => {
         selectedCPUImage = document.querySelector('.cpuSelections .' + cpuChoice); // '.cpuSelections .rock'
         console.log(selectedCPUImage)
         selectedCPUImage.classList.add('selected')
-       
+
         //Display CPU choice(text)
         //const cpuSelection = document.querySelector('.cpuSelection')
         cpuSelection.classList.add('selected')
@@ -50,15 +52,33 @@ userSelections.addEventListener('click', (e) => {
         // const winAnnouncement = document.querySelector('.announcement')
         winAnnouncement.classList.add('selected')
         winAnnouncement.textContent = winner + " won this round!"
-        
-        //display Play Again button
-        playAgainButton.classList.add('selected')
-    }
+        if (winner == "draw") {
+            winAnnouncement.textContent = "TIE"
+        }
+
+        if (winner == "player") {
+            playerScore++
+            console.log(playerScore)
+        }
+        if (winner == "robot") {
+            computerScore++
+            console.log(computerScore)
+        }
+
+        if (playerScore == 5 || computerScore == 5) {
+            winAnnouncement.textContent = winner + " won the match! Play a new game"
+        }
+    
+    //display Play Again button
+    playAgainButton.classList.add('selected')
+
+
+}
 });
 
 playAgainButton.addEventListener('click', () => {
     // allow click on new player choice
-    playerChoice = null 
+    playerChoice = null
 
     // console.log(document.querySelectorAll('.selected'))
     // document.querySelectorAll('.selected').forEach((element) => {

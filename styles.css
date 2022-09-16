@@ -12,6 +12,10 @@ body {
     margin: 0 auto;
 }
 
+.gameStats {
+    display: flex;
+
+}
 .userSelections .rock:hover,
 .userSelections .paper:hover,
 .userSelections .scissors:hover {
