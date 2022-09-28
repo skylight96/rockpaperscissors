@@ -12,10 +12,6 @@ body {
     margin: 0 auto;
 }
 
-.gameStats {
-    display: flex;
-
-}
 .userSelections .rock:hover,
 .userSelections .paper:hover,
 .userSelections .scissors:hover {
@@ -40,12 +36,16 @@ body {
     margin: 10%;
 }
 
-.announcement, .playerSelection, .cpuSelection, .playAgain {
+.playerSelection, .cpuSelection, .playAgain {
     visibility: hidden;
 }
 
-.announcement.selected, .playerSelection.selected, .cpuSelection.selected, .playAgain.selected {
+.playerSelection.selected, .cpuSelection.selected, .playAgain.selected {
     visibility: visible;
+}
+
+.announcement {
+    text-align: center;
 }
 
 h1,

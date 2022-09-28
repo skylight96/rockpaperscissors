@@ -8,7 +8,8 @@ const playerSelection = document.querySelector('.playerSelection')
 const cpuSelection = document.querySelector('.cpuSelection')
 const winAnnouncement = document.querySelector('.announcement')
 
-const record = document.querySelector('.record')
+let playerScoreboard = document.querySelector('.playerScoreboard')
+let cpuScoreboard = document.querySelector('.cpuScoreboard')
 
 let playerScore = 0;
 let computerScore = 0;
@@ -58,10 +59,12 @@ userSelections.addEventListener('click', (e) => {
 
         if (winner == "player") {
             playerScore++
+            playerScoreboard.textContent = 'Player Score: ' + playerScore
             console.log(playerScore)
         }
         if (winner == "robot") {
             computerScore++
+            cpuScoreboard.textContent = 'CPU Score: ' + computerScore
             console.log(computerScore)
         }
 
@@ -84,15 +87,26 @@ playAgainButton.addEventListener('click', () => {
     // document.querySelectorAll('.selected').forEach((element) => {
     //     element.classList.remove('selected')
     // })
-
+    
     playerSelection.classList.remove('selected')
     cpuSelection.classList.remove('selected')
     selectedPlayerImage.classList.remove('selected')
     selectedCPUImage.classList.remove('selected')
     playAgainButton.classList.remove('selected')
-    winAnnouncement.classList.remove('selected')
+    winAnnouncement.textContent = ('PICK A CHOICE')
+
+    if (playerScore == 5 || computerScore == 5) {
+        computerScore = 0
+        playerScore = 0
+
+        playerScoreboard.textContent = 'Player Score: ' + playerScore
+        cpuScoreboard.textContent = 'CPU Score: ' + computerScore
+    }
 })
 
+// if ((playerScore == 5 || computerScore == 5) && playAgainButton)
+//    reload page    
+ //   playerScore && computerScore == 0
 
 // function game() {
 //for (let round = 0; round < 5; round++) {
